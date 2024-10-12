@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 // --------------------------------- //
 import { FcGoogle } from "react-icons/fc";
@@ -21,7 +23,7 @@ import { useLogin } from "../api/use-login";
 export const SignInCard = () => {
 
 
-    const { mutate } = useLogin()
+    const { mutate, isPending } = useLogin()
 
 
     const form = useForm<z.infer<typeof loginSchema>>({
@@ -89,7 +91,7 @@ export const SignInCard = () => {
                                 </FormItem>
                             )}
                         />
-                        <Button disabled={false} size={"lg"} className="w-full">
+                        <Button disabled={isPending} size={"lg"} className="w-full">
                             Login
                         </Button>
                     </form>
@@ -101,11 +103,11 @@ export const SignInCard = () => {
             </div>
 
             <CardContent className="p-7 flex flex-col gap-y-4">
-                <Button variant={"secondary"} disabled={false} size={"lg"} className="w-full">
+                <Button variant={"secondary"} disabled={isPending} size={"lg"} className="w-full">
                     <FcGoogle className="mr-2 size-5" />
                     Login with Google
                 </Button>
-                <Button variant={"secondary"} disabled={false} size={"lg"} className="w-full">
+                <Button variant={"secondary"} disabled={isPending} size={"lg"} className="w-full">
                     <FaGithub className="mr-2 size-5" />
                     Login with Github
                 </Button>
