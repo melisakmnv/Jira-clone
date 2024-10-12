@@ -1,0 +1,10 @@
+Next
+ShadcnUI
+React hook from
+zod
+
+Hono 
+Tanstack query
+Appwrite : API Key, install SDK => save in DB , create session
+           Every requests from client => API => Appwrite
+Server only : Prevent importing Server components to Client Side
