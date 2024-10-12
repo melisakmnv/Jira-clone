@@ -10,14 +10,10 @@ import { useLogout } from "../api/use-logout";
 import { useCurrent } from "../api/use-current";
 
 
-
 export const UserButton = () => {
 
     const { data: user, isLoading } = useCurrent();
     const { mutate: logout } = useLogout();
-
-
-
 
     if (isLoading) {
         return (
@@ -65,5 +61,5 @@ export const UserButton = () => {
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
-    )
-}
+    );
+};

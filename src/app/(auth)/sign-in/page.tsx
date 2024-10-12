@@ -1,4 +1,3 @@
-
 import { redirect } from "next/navigation"
 
 import { getCurrent } from "@/features/auth/actions"
@@ -11,6 +10,7 @@ const SignInPage = async () => {
     if (user) redirect("/")
 
     return <SignInCard />
-}
+    
+};
 
-export default SignInPage 
+export default SignInPage;

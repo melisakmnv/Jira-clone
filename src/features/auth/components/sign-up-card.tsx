@@ -19,9 +19,6 @@ import { registerSchema } from "../schemas";
 import { useRegister } from "../api/use-register";
 
 
-
-
-
 export const SignUpCard = () => {
 
     const { mutate, isPending } = useRegister()
@@ -152,5 +149,5 @@ export const SignUpCard = () => {
                 </p>
             </CardContent>
         </Card>
-    )
-}
+    );
+};

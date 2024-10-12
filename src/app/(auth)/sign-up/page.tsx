@@ -1,5 +1,3 @@
-
-
 import { redirect } from "next/navigation"
 
 import { getCurrent } from "@/features/auth/actions"
@@ -11,8 +9,8 @@ const SignUpPage = async () => {
     const user = await getCurrent()
     if (user) redirect("/")
 
+    return <SignUpCard />
 
-  return <SignUpCard/>
-}
+};
 
-export default SignUpPage
+export default SignUpPage;

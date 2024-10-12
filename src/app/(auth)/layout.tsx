@@ -44,7 +44,7 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
 
             </div>
         </main>
-    )
-}
+    );
+};
 
-export default AuthLayout
+export default AuthLayout;

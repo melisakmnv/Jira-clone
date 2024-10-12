@@ -19,12 +19,9 @@ import { loginSchema } from "../schemas";
 import { useLogin } from "../api/use-login";
 
 
-
 export const SignInCard = () => {
 
-
     const { mutate, isPending } = useLogin()
-
 
     const form = useForm<z.infer<typeof loginSchema>>({
         resolver: zodResolver(loginSchema),
@@ -39,7 +36,6 @@ export const SignInCard = () => {
             json : values
         });
     }
-
 
     return (
         <Card className="w-full h-full md:w-[487px] border-none shadow-none">
@@ -126,5 +122,5 @@ export const SignInCard = () => {
                 </p>
             </CardContent>
         </Card>
-    )
-}
+    );
+};
