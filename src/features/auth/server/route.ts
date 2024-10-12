@@ -24,9 +24,9 @@ const app = new Hono()
 
             const { name, email, password } = c.req.valid("json")
 
-            console.log({ name,email, password })
+            console.log({ name, email, password })
 
-            return c.json({ name,email, password })
+            return c.json({ name, email, password })
         }
     )
 
