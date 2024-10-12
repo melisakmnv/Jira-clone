@@ -1,39 +1,41 @@
 import Link from "next/link";
-
+// --------------------------------- //
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
-
+// --------------------------------- //
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+// --------------------------------- //
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+// --------------------------------- //
+import { loginSchema } from "../schemas";
+import { useLogin } from "../api/use-login";
 
-
-const formSchema = z.object({
-    email: z.string().email(),
-    password: z.string().min(1, "Required")
-})
 
 
 export const SignInCard = () => {
 
 
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
+    const { mutate } = useLogin()
+
+
+    const form = useForm<z.infer<typeof loginSchema>>({
+        resolver: zodResolver(loginSchema),
         defaultValues: {
             email: "",
             password: ""
         }
     })
 
-
-    const onSubmit = (values: z.infer<typeof formSchema>) => {
-        console.log(values)
+    const onSubmit = (values: z.infer<typeof loginSchema>) => {
+        mutate({
+            json : values
+        });
     }
 
 
@@ -108,9 +110,9 @@ export const SignInCard = () => {
                     Login with Github
                 </Button>
             </CardContent>
-            
+
             <div className="px-7">
-                <DottedSeparator/>
+                <DottedSeparator />
             </div>
 
             <CardContent className="p-7 flex items-center justify-center">
