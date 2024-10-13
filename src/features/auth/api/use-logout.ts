@@ -1,3 +1,5 @@
+import { toast } from "sonner";
+
 import { useRouter } from "next/navigation";
 
 import {  InferResponseType } from "hono";
@@ -22,11 +24,20 @@ export const useLogout = () => {
         mutationFn : async () => {
             // const response = await client.api.auth.login.$post // This .$post is able here //
             const response = await client.api.auth.logout["$post"]()
+
+            if (!response.ok) {
+                throw new Error("Failed to logout")
+            }
+
             return await response.json()
         },
         onSuccess : () => {
+            toast.success("You are now logged out")
             router.refresh();
             queryClient.invalidateQueries({ queryKey : ["current"]});
+        },
+        onError: () => {
+            toast.error("Failed to log out")
         }
 
     })
