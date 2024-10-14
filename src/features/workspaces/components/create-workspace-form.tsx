@@ -10,6 +10,8 @@ import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { cn } from "@/lib/utils";
+
 import { DottedSeparator } from "@/components/dotted-separator";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -24,9 +26,7 @@ import { createWorkspaceSchema } from "../schema";
 
 interface CreateWorkspaceFormProps {
     onCancel?: () => void;
-
 }
-
 
 export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
 
@@ -168,6 +168,7 @@ export const CreateWorkspaceForm = ({ onCancel }: CreateWorkspaceFormProps) => {
                                 size={"lg"}
                                 variant={"secondary"}
                                 onClick={onCancel}
+                                className={cn(onCancel ? "visible" : "invisible")}
                             >
                                 Cancel
                             </Button>
