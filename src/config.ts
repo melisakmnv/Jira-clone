@@ -1,2 +1,9 @@
 export const DATABASES_ID = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
 export const WORKSPACES_ID = process.env.NEXT_PUBLIC_APPWRITE_WORKSPACES_ID!;
+export const IMAGES_BUCKET_ID = process.env.NEXT_PUBLIC_APPWRITE_IMAGES_BUCKET_ID!;
+
+export const APPWRITE_ENDPOINT = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!;
+export const APPWRITE_PROJECT = process.env.NEXT_PUBLIC_APPWRITE_PROJECT!;
+
+export const APPWRITE_KEY = process.env.NEXT_APPWRITE_KEY!;
+export const APP_URL = process.env.NEXT_PUBLIC_APP_URL!;
